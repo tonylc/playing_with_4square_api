@@ -1,0 +1,16 @@
+<p>Enter your location:</p>
+<% form_tag do %>
+	<legend>Latitude</legend>
+	<%= text_field_tag :latitude %>
+	<legend>Longitude</legend>
+	<%= text_field_tag :longitude %>
+	<%= submit_tag "Find" %>
+<% end %>
+
+<% if @business_result %>
+	<ul>
+	<% @business_result.businesses.each do |business| %>
+		<li><%= business.name %>: Lat - <%= business.latitude %>, Long - <%= business.longitude %></li>
+	<% end %>
+	</ul>
+<% end %>
